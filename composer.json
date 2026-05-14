@@ -1,6 +1,6 @@
 {
     "name": "cybervelvet/laravel-dev-terminal",
-    "description": "Advanced Laravel development terminal dashboard with an Artisan entrypoint",
+    "description": "Advanced Laravel development terminal dashboard with an Artisan entrypoint.",
     "type": "library",
     "license": "MIT",
     "keywords": [
