@@ -19,7 +19,7 @@ from typing import Optional, List, Dict, Any
 
 ANSI_RE = re.compile(r"\x1b\[[0-9;?]*[ -/]*[@-~]")
 SPINNER = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
-APP_VERSION = os.environ.get("DEV_TERMINAL_VERSION", "v1.3.1")
+APP_VERSION = os.environ.get("DEV_TERMINAL_VERSION", "dev")
 
 
 @dataclass

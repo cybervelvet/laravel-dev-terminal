@@ -21,7 +21,7 @@ trait RunsDevTerminal
         $host = $this->option('host') ?: config('dev-terminal.host', '127.0.0.1');
         $port = $this->option('port') ?: config('dev-terminal.port', '8000');
         $viteHost = $this->option('vite-host') ?: config('dev-terminal.vite_host', '127.0.0.1');
-        $version = config('dev-terminal.version', 'v1.3.1');
+        $version = $this->resolveDevTerminalVersion();
 
         $process = new Process([
             $python,
@@ -53,5 +53,23 @@ trait RunsDevTerminal
 
             return self::FAILURE;
         }
+    }
+    protected function resolveDevTerminalVersion(): string
+    {
+        $configuredVersion = config('dev-terminal.version');
+
+        if (is_string($configuredVersion) && $configuredVersion !== '' && $configuredVersion !== 'auto') {
+            return $configuredVersion;
+        }
+
+        if (class_exists(\Composer\InstalledVersions::class)) {
+            $prettyVersion = \Composer\InstalledVersions::getPrettyVersion('cybervelvet/laravel-dev-terminal');
+
+            if (is_string($prettyVersion) && $prettyVersion !== '') {
+                return $prettyVersion;
+            }
+        }
+
+        return 'dev';
     }
 }
