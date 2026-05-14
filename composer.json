@@ -1,0 +1,33 @@
+{
+    "name": "cybervelvet/laravel-dev-terminal",
+    "description": "Advanced Laravel development terminal dashboard with an Artisan entrypoint.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "artisan",
+        "terminal",
+        "dashboard",
+        "development"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cybervelvet\\LaravelDevTerminal\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cybervelvet\\LaravelDevTerminal\\DevTerminalServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "illuminate/console": "^10.0|^11.0|^12.0",
+        "symfony/process": "^6.0|^7.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
